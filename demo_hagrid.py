@@ -172,7 +172,7 @@ def load_model(ckpt_path: str, device: torch.device):
         sys.exit(1)
 
     print(f'[INFO] Loading checkpoint: {path}')
-    ckpt = torch.load(path, map_location=device)
+    ckpt = torch.load(path, map_location=device, weights_only=True)
 
     # Restore class mapping saved inside the checkpoint
     idx2class = ckpt.get('idx2class', IDX2CLASS)
